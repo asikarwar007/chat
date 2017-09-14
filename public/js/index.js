@@ -25,3 +25,22 @@ jQuery('#message-form').on('submit', function (e) {
 
   });
 });
+
+var locationButton = jQuery('#send-location');
+locationButton.on('click', function () {
+  // body...
+  if(!navigator.geolocation){
+    return alert('geolocation not supported');
+  }
+
+  navigator.geolocation.getCurrentPosition(function (position) {
+    // body...
+    console.log(position);
+  },function () {
+    // body...
+    alert('unable to fetch location')
+  });
+
+
+});
+
